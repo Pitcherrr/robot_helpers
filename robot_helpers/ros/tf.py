@@ -9,7 +9,8 @@ _buffer, _listener, _broadcaster = None, None, None
 
 def _init_listener():
     global _buffer, _listener
-    _buffer = tf2_ros.Buffer()
+    _buffer = tf2_ros.Buffer(rospy.Duration(1.0))
+    # _buffer.setTransformCache(tf2_ros.CacheLookupException, rospy.Duration(1.0))
     _listener = tf2_ros.TransformListener(_buffer)
 
 
